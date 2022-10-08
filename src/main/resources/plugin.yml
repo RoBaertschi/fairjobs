@@ -1,0 +1,7 @@
+name: FairJobs
+version: 0.1.0
+main: io.github.robaertschi.FairJobsPlugin
+description: An example plugin
+author: RoBaertschi
+website: https://robaertschi.github.io
+api-version: 1.19

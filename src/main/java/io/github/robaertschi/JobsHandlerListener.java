@@ -6,10 +6,13 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.slf4j.LoggerFactory;
 
 import java.util.Random;
+import java.util.logging.Level;
+
+import static java.lang.System.out;
 
 public class JobsHandlerListener implements Listener {
 
-    private static Jobs[] usedJobs = new Jobs[5];
+    public static Jobs[] usedJobs = new Jobs[5];
 
     @EventHandler
     public void joinCreateUser(PlayerJoinEvent e)
@@ -21,19 +24,20 @@ public class JobsHandlerListener implements Listener {
         while (true) {
             int jobInt = random.nextInt(5);
             Jobs job = Jobs.from(jobInt);
+            int i = 0;
 
-            for (Jobs eachJob:
-                 usedJobs) {
-                if (eachJob == job) {
-                    continue job;
-                }
-            }
+            // TODO: Add Job to Array or retry to get a Job.
+
+            usedJobs[i] = job;
 
             user.createUser(e.getPlayer(), job);
             break job;
         }
 
-        System.out.println("Hi");
+        for (Jobs job:
+             usedJobs) {
+            out.println(job);
+        }
 
     }
 
